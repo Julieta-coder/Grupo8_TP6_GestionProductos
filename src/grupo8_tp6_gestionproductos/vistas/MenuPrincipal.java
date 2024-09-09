@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     
-    protected static TreeMap<Long,Producto> mapaProductos;
+    protected static TreeMap <Long,Producto> mapaProductos;
 
     
     public MenuPrincipal() {

@@ -1,12 +1,33 @@
 
 package grupo8_tp6_gestionproductos.vistas;
 
+import java.util.ArrayList;
+
 
 public class Administracion extends javax.swing.JInternalFrame {
+    
+  
 
     
     public Administracion() {
         initComponents();
+        inicializadorCombo();
+        
+        
+    }
+    
+    private void inicializadorCombo(){
+        ArrayList <String> categorias = new ArrayList<>();
+        categorias.add("Ropa");
+        categorias.add("Electrodomesticos");
+        categorias.add("Comestible");
+        categorias.add("Limpieza");
+        
+        jcbCategoria.removeAllItems();
+        
+        for (String cat : categorias){
+            jcbCategoria.addItem(cat);
+        }
     }
 
    
@@ -30,6 +51,11 @@ public class Administracion extends javax.swing.JInternalFrame {
         jlCategoria.setText("Rubro:");
 
         jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbCategoriaItemStateChanged(evt);
+            }
+        });
         jcbCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbCategoriaActionPerformed(evt);
@@ -122,6 +148,10 @@ public class Administracion extends javax.swing.JInternalFrame {
     private void jcbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbCategoriaActionPerformed
+
+    private void jcbCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbCategoriaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbCategoriaItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
