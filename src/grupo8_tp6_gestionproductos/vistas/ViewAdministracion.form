@@ -167,6 +167,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtbBuscarActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jpAdmin">
           <Properties>
@@ -407,6 +410,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtbCerrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jtbNuevo">
           <Properties>

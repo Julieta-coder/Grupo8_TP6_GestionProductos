@@ -99,6 +99,11 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
         jtbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-search-32.png"))); // NOI18N
         jtbBuscar.setText("Buscar");
         jtbBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jtbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbBuscarActionPerformed(evt);
+            }
+        });
 
         jpAdmin.setBackground(new java.awt.Color(51, 51, 51));
         jpAdmin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -217,6 +222,11 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
         jtbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cross-32.png"))); // NOI18N
         jtbCerrar.setText("Cerrar");
         jtbCerrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jtbCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbCerrarActionPerformed(evt);
+            }
+        });
 
         jtbNuevo.setBackground(new java.awt.Color(0, 0, 0));
         jtbNuevo.setForeground(new java.awt.Color(255, 255, 255));
@@ -355,13 +365,13 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         // TODO add your handling code here:
         try{
-            Long codigo = Long.parseLong(jtfCodigo.getText());
+            Long codigo = Long.valueOf(jtfCodigo.getText());
             String rubro=(String) jcbCategoria.getSelectedItem();
             String descripcion=jtfDescripcion.getText();
             int precio = Integer.parseInt(jtfPrecio.getText());
             int stock = (int) jsStock.getValue();
-            if(!rubro.isEmpty()&& !descripcion.isBlank()){
-                Producto productoCreado = new Producto(descripcion,rubro,precio,stock);
+            if(!rubro.isEmpty()&& !descripcion.isEmpty()){
+                Producto productoCreado = new Producto(rubro,descripcion,precio,stock);
                 if(!ViewMenuPrincipal.mapaProductos.containsKey(codigo)){
                     ViewMenuPrincipal.mapaProductos.put(codigo, productoCreado);
                      JOptionPane.showMessageDialog(this, "¡Producto almacenado con exito!", "Operacion exitosa", JOptionPane.INFORMATION_MESSAGE);
@@ -420,6 +430,28 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
              JOptionPane.showMessageDialog(this, "Operacion cancelada.", "Operacion finalizada", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jtbBorrarActionPerformed
+
+    private void jtbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbCerrarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jtbCerrarActionPerformed
+
+    private void jtbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbBuscarActionPerformed
+        // TODO add your handling code here:
+        try{
+            Long codigo = Long.valueOf(jtfCodigo.getText());
+            for (Map.Entry<Long, Producto> entry : ViewMenuPrincipal.mapaProductos.entrySet()) {
+                Object key = entry.getKey();
+                Object value = entry.getValue();
+                if(key==codigo){
+                    
+                }
+            }
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Ningun codigo ingresado", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }//GEN-LAST:event_jtbBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
