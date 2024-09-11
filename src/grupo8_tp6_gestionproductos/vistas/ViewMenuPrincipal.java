@@ -1,7 +1,7 @@
 
 package grupo8_tp6_gestionproductos.vistas;
 
-import grupo8_tp6_gestionproductos.Producto;
+import clases.Producto;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.TreeMap;
@@ -16,7 +16,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     public ViewMenuPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
-        
         mapaProductos = new TreeMap();
     }
 
@@ -49,12 +48,13 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         );
         jdPrincipalLayout.setVerticalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         jmbMenu.setPreferredSize(new java.awt.Dimension(120, 50));
 
         jmAdministracion.setText("Administracion");
+        jmAdministracion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jmAdministracion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jmAdministracionMouseClicked(evt);
@@ -62,14 +62,18 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         });
         jmbMenu.add(jmAdministracion);
 
-        jmConsultas.setText("Consultas");
+        jmConsultas.setText("  Consultas");
+        jmConsultas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        jmiPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmiPrecio.setText("Precio");
         jmConsultas.add(jmiPrecio);
 
+        jmiNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmiNombre.setText("Nombre");
         jmConsultas.add(jmiNombre);
 
+        jmiRubro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmiRubro.setText("Rubro");
         jmConsultas.add(jmiRubro);
 
