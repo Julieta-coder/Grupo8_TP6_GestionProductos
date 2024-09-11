@@ -2,16 +2,20 @@
 package grupo8_tp6_gestionproductos.vistas;
 
 import grupo8_tp6_gestionproductos.Producto;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.TreeMap;
+import javax.swing.ImageIcon;
 
 
-public class MenuPrincipal extends javax.swing.JFrame {
+public class ViewMenuPrincipal extends javax.swing.JFrame {
     
     protected static TreeMap <Long,Producto> mapaProductos;
 
     
-    public MenuPrincipal() {
+    public ViewMenuPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
         
         mapaProductos = new TreeMap();
     }
@@ -21,7 +25,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jdPrincipal = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"));
+        Image mImg = icono.getImage();
+        jdPrincipal = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(mImg, 0, 0,getWidth(), getHeight(),this);
+            }
+        };
         jmbMenu = new javax.swing.JMenuBar();
         jmAdministracion = new javax.swing.JMenu();
         jmConsultas = new javax.swing.JMenu();
@@ -35,11 +45,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdPrincipal.setLayout(jdPrincipalLayout);
         jdPrincipalLayout.setHorizontalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGap(0, 1007, Short.MAX_VALUE)
         );
         jdPrincipalLayout.setVerticalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         jmbMenu.setPreferredSize(new java.awt.Dimension(120, 50));
@@ -71,18 +81,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdPrincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmAdministracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAdministracionMouseClicked
-       Administracion interno = new Administracion();
+       ViewAdministracion interno = new ViewAdministracion();
        interno.setVisible(true);
        jdPrincipal.add(interno);
       
@@ -103,20 +117,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new ViewMenuPrincipal().setVisible(true);
             }
         });
     }
