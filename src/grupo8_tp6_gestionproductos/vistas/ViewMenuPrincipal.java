@@ -66,15 +66,25 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jmConsultas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         jmiPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jmiPrecio.setText("Precio");
+        jmiPrecio.setText("Por Precio");
+        jmiPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPrecioActionPerformed(evt);
+            }
+        });
         jmConsultas.add(jmiPrecio);
 
         jmiNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jmiNombre.setText("Nombre");
+        jmiNombre.setText("Por Nombre");
+        jmiNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNombreActionPerformed(evt);
+            }
+        });
         jmConsultas.add(jmiNombre);
 
         jmiRubro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jmiRubro.setText("Rubro");
+        jmiRubro.setText("Por Rubro");
         jmConsultas.add(jmiRubro);
 
         jmbMenu.add(jmConsultas);
@@ -100,11 +110,34 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmAdministracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAdministracionMouseClicked
-       ViewAdministracion interno = new ViewAdministracion();
-       interno.setVisible(true);
-       jdPrincipal.add(interno);
+        jdPrincipal.removeAll();
+        jdPrincipal.repaint();
+       ViewAdministracion internoAdmin = new ViewAdministracion();
+       internoAdmin.setVisible(true);
+       jdPrincipal.add(internoAdmin);
+       jdPrincipal.moveToFront(internoAdmin);
       
     }//GEN-LAST:event_jmAdministracionMouseClicked
+
+    private void jmiPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPrecioActionPerformed
+        // TODO add your handling code here:
+       jdPrincipal.removeAll();
+       jdPrincipal.repaint();
+       ViewPrecio internoPrecio = new ViewPrecio();
+       internoPrecio.setVisible(true);
+       jdPrincipal.add(internoPrecio);
+       jdPrincipal.moveToFront(internoPrecio);
+    }//GEN-LAST:event_jmiPrecioActionPerformed
+
+    private void jmiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNombreActionPerformed
+        // TODO add your handling code here:
+        jdPrincipal.removeAll();
+       jdPrincipal.repaint();
+       ViewNombre internoNombre = new ViewNombre();
+       internoNombre.setVisible(true);
+       jdPrincipal.add(internoNombre);
+       jdPrincipal.moveToFront(internoNombre);
+    }//GEN-LAST:event_jmiNombreActionPerformed
 
    
     public static void main(String args[]) {

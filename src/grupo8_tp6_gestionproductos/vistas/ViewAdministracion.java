@@ -2,7 +2,6 @@
 package grupo8_tp6_gestionproductos.vistas;
 
 import clases.Producto;
-import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +13,7 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
           @Override
           //por cada celda de la tabla se ejecuta este metodo
         public boolean isCellEditable(int fila, int columna) {
-//            return super.isCellEditable(fila, columna); //SI cambiamos el Return por false las tablas no son editables Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        //return super.isCellEditable(fila, columna); //SI cambiamos el Return por false las tablas no son editables Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
                 return false;
         } 
     
@@ -375,7 +374,6 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
                 if(!ViewMenuPrincipal.mapaProductos.containsKey(codigo)){
                     ViewMenuPrincipal.mapaProductos.put(codigo, productoCreado);
                      JOptionPane.showMessageDialog(this, "¡Producto almacenado con exito!", "Operacion exitosa", JOptionPane.INFORMATION_MESSAGE);
-                     System.out.println(ViewMenuPrincipal.mapaProductos);
                 }else{
                     JOptionPane.showMessageDialog(this, "El codigo '"+codigo+"' ya fue utilizada. Puede eliminar el producto desde la tabla para actualizar el codigo", "Error en el codigo", JOptionPane.ERROR_MESSAGE);
                 }
@@ -442,9 +440,18 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
             Long codigo = Long.valueOf(jtfCodigo.getText());
             for (Map.Entry<Long, Producto> entry : ViewMenuPrincipal.mapaProductos.entrySet()) {
                 Object key = entry.getKey();
-                Object value = entry.getValue();
                 if(key==codigo){
+                    jtfDescripcion.setText(entry.getValue().getDescripcion());
+                    jtfPrecio.setText(entry.getValue().getPrecio()+"");
+                    jsStock.setValue(entry.getValue().getStock());
                     
+                    String categoria = (String) entry.getValue().getRubro();
+                    for (int i = 0; i < jcbCategoria.getItemCount(); i++) {
+                         if (categoria.equals(categoria)) {
+                            jcbCategoria.setSelectedIndex(i);
+                            break;
+                        }
+                    }
                 }
             }
         }catch(NumberFormatException e){
