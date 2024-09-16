@@ -367,6 +367,7 @@ public class ViewAdministracion extends javax.swing.JInternalFrame {
             Long codigo = Long.valueOf(jtfCodigo.getText());
             String rubro=(String) jcbCategoria.getSelectedItem();
             String descripcion=jtfDescripcion.getText();
+            descripcion.toLowerCase();
             int precio = Integer.parseInt(jtfPrecio.getText());
             int stock = (int) jsStock.getValue();
             if(!rubro.isEmpty()&& !descripcion.isEmpty()){

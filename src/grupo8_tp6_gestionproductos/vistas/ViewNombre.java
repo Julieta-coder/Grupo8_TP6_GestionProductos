@@ -162,12 +162,10 @@ public class ViewNombre extends javax.swing.JInternalFrame {
     private void jtfIngresoNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfIngresoNombreKeyReleased
         // TODO add your handling code here:
          String descripcion=jtfIngresoNombre.getText();
-         for (int i = 0; i < descripcion.length(); i++) {
-            char descripcionChar = descripcion.charAt(i); 
+         descripcion.toLowerCase();
             modeloTabla.getDataVector().removeAllElements();
             modeloTabla.fireTableDataChanged();
-            cargarDatos(descripcionChar);
-        }
+            cargarDatos(descripcion);
     }//GEN-LAST:event_jtfIngresoNombreKeyReleased
 
 
@@ -187,16 +185,13 @@ public class ViewNombre extends javax.swing.JInternalFrame {
          this.modeloTabla.addColumn("Stock");
          jtDescripcion.setModel(modeloTabla);
     }
-     private void cargarDatos(char descripcionChar){   
+     private void cargarDatos(String descripcion){ 
          for (Map.Entry<Long, Producto> en : ViewMenuPrincipal.mapaProductos.entrySet()) {
              Long key = en.getKey();
              Producto value = en.getValue();
-                for (int i = 0; i < value.getDescripcion().length(); i++) {
-                    char caracterValue=value.getDescripcion().charAt(i);
-                     if(caracterValue==descripcionChar){
+               if(value.getDescripcion().startsWith(descripcion)){
                        modeloTabla.addRow(new Object[]{key,value.getDescripcion(),value.getPrecio(),value.getRubro(),value.getStock()});  
-                   }
-             }
+               }
          }
      }
 }
