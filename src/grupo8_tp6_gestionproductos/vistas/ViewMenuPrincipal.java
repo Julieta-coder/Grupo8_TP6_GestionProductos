@@ -51,6 +51,8 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             .addGap(0, 700, Short.MAX_VALUE)
         );
 
+        getContentPane().add(jdPrincipal, java.awt.BorderLayout.CENTER);
+
         jmbMenu.setPreferredSize(new java.awt.Dimension(120, 50));
 
         jmAdministracion.setText("Administracion");
@@ -95,21 +97,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jmbMenu.add(jmConsultas);
 
         setJMenuBar(jmbMenu);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

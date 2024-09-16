@@ -181,7 +181,6 @@ public class ViewPrecio extends javax.swing.JInternalFrame {
            int numTwo = Integer.parseInt(jtfNumeroMayor.getText());
             cargarDatos(numOne,numTwo);
         }catch(NumberFormatException e){
-            
         }
     }//GEN-LAST:event_jtfNumeroMenorKeyReleased
 
@@ -194,7 +193,6 @@ public class ViewPrecio extends javax.swing.JInternalFrame {
            int numTwo = Integer.parseInt(jtfNumeroMayor.getText());
            cargarDatos(numOne,numTwo);
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "No hay productos almacenados", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtfNumeroMayorKeyReleased
 
