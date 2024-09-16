@@ -85,6 +85,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
         jmiRubro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmiRubro.setText("Por Rubro");
+        jmiRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRubroActionPerformed(evt);
+            }
+        });
         jmConsultas.add(jmiRubro);
 
         jmbMenu.add(jmConsultas);
@@ -138,6 +143,16 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
        jdPrincipal.add(internoNombre);
        jdPrincipal.moveToFront(internoNombre);
     }//GEN-LAST:event_jmiNombreActionPerformed
+
+    private void jmiRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRubroActionPerformed
+        // TODO add your handling code here:
+        jdPrincipal.removeAll();
+       jdPrincipal.repaint();
+       ViewCategoria internoCategoria = new ViewCategoria();
+       internoCategoria.setVisible(true);
+       jdPrincipal.add(internoCategoria);
+       jdPrincipal.moveToFront(internoCategoria);
+    }//GEN-LAST:event_jmiRubroActionPerformed
 
    
     public static void main(String args[]) {
