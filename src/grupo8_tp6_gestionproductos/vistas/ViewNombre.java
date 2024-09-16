@@ -7,6 +7,7 @@ package grupo8_tp6_gestionproductos.vistas;
 import clases.Producto;
 import java.awt.event.KeyEvent;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -65,6 +66,9 @@ public class ViewNombre extends javax.swing.JInternalFrame {
         jtfIngresoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtfIngresoNombreKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfIngresoNombreKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtfIngresoNombreKeyTyped(evt);
@@ -144,15 +148,27 @@ public class ViewNombre extends javax.swing.JInternalFrame {
 
     private void jtfIngresoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfIngresoNombreKeyTyped
         // TODO add your handling code here:
-        modeloTabla.getDataVector().removeAllElements();
-        modeloTabla.fireTableDataChanged();
-         String descripcion=jtfIngresoNombre.getText();
-         for (int i = 0; i < descripcion.length(); i++) {
-            char descripcionChar = descripcion.charAt(i);  
-            cargarDatos(descripcionChar);
-        }
+//        modeloTabla.getDataVector().removeAllElements();
+//        modeloTabla.fireTableDataChanged();
+//         String descripcion=jtfIngresoNombre.getText();
+//         for (int i = 0; i < descripcion.length(); i++) {
+//             System.out.println(i);
+//            char descripcionChar = descripcion.charAt(i);  
+//            cargarDatos(descripcionChar);
+//        }
         
     }//GEN-LAST:event_jtfIngresoNombreKeyTyped
+
+    private void jtfIngresoNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfIngresoNombreKeyReleased
+        // TODO add your handling code here:
+         String descripcion=jtfIngresoNombre.getText();
+         for (int i = 0; i < descripcion.length(); i++) {
+            char descripcionChar = descripcion.charAt(i); 
+            modeloTabla.getDataVector().removeAllElements();
+            modeloTabla.fireTableDataChanged();
+            cargarDatos(descripcionChar);
+        }
+    }//GEN-LAST:event_jtfIngresoNombreKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -175,13 +191,12 @@ public class ViewNombre extends javax.swing.JInternalFrame {
          for (Map.Entry<Long, Producto> en : ViewMenuPrincipal.mapaProductos.entrySet()) {
              Long key = en.getKey();
              Producto value = en.getValue();
-             for (int i = 0; i < value.getDescripcion().length(); i++) {
-                 char caracterValue=value.getDescripcion().charAt(i);
-                  if(caracterValue==descripcionChar){
-                    modeloTabla.addRow(new Object[]{key,value.getDescripcion(),value.getPrecio(),value.getRubro(),value.getStock()});  
-                }
+                for (int i = 0; i < value.getDescripcion().length(); i++) {
+                    char caracterValue=value.getDescripcion().charAt(i);
+                     if(caracterValue==descripcionChar){
+                       modeloTabla.addRow(new Object[]{key,value.getDescripcion(),value.getPrecio(),value.getRubro(),value.getStock()});  
+                   }
              }
-              
          }
      }
 }

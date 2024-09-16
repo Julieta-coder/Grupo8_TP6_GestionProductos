@@ -7,6 +7,7 @@ package grupo8_tp6_gestionproductos.vistas;
 import clases.Producto;
 import java.awt.event.KeyEvent;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -180,7 +181,7 @@ public class ViewPrecio extends javax.swing.JInternalFrame {
            int numTwo = Integer.parseInt(jtfNumeroMayor.getText());
             cargarDatos(numOne,numTwo);
         }catch(NumberFormatException e){
-            
+            JOptionPane.showMessageDialog(this, "No hay productos almacenados", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtfNumeroMenorKeyReleased
 
@@ -193,6 +194,7 @@ public class ViewPrecio extends javax.swing.JInternalFrame {
            int numTwo = Integer.parseInt(jtfNumeroMayor.getText());
            cargarDatos(numOne,numTwo);
         }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "No hay productos almacenados", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtfNumeroMayorKeyReleased
 
